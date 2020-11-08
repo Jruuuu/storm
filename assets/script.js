@@ -71,7 +71,7 @@ $(document).ready(function () {
                         <div class="card">
                             <div class="card-body">
                                 <div class="date">(${new Date().toLocaleDateString()})</div>
-                                <img src="http://openweathermap.org/img/w/${res.list[i].weather[0].icon}.png"/>
+                                <img src="https://openweathermap.org/img/w/${res.list[i].weather[0].icon}.png"/>
                                 <p class="card-text temp">Temp: ${res.list[i].main.temp}F</p>
                                 <p class="card-text wind">Wind Speed: ${res.list[i].wind.speed}MPH</p>
                                 <p class="card-text humid">Humidity: ${res.list[i].main.humidity}%</p>
