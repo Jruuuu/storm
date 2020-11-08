@@ -17,21 +17,19 @@
     <nav class="navbar navbar-dark bg-light">
         <span class="navbar-brand mx-auto h1">STORM Dashboard</span>
     </nav>
-    <div class="card float-left mx-2 col-md-3" id="search-card">
+    <div class="card float-left  col-md-3" id="search-card">
         <div class="container search-container float-left">
             <!--This where the search bar and where the lastest search results are inputted-->
             <h5>Search City:</h5>
-            <input type="text" class="form-control float-left" id="userInput" placeholder="Search City Here"
-                aria-label="Search City Here" aria-describedby="search-bar">
-            <button id="search-button" type="button" class="btn btn-primary">
-                <i class="fa-search fas" aria-hidden="true"></i>
+            <input type="text" class="form-control" id="userInput" placeholder="Search City Here"
+                aria-label="Search City Here" aria-describedby="search-bar"><button id="search-button" type="button" class="btn btn-primary float-left"><i class="fa-search fas" aria-hidden="true"></i>
             </button>
             <!--This is the area where the Saved results located are located-->
             <div class="saved-results container"></div>
 
         </div>
     </div>
-    <div class="card container results-container        float-right col-md-9" id="results-card">
+    <div class="card container results-container float-right col-md-9" id="results-card">
         <!--This is where the results for todays forecast-->
         <div class="todaysForecast">
         </div>

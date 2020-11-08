@@ -4,7 +4,7 @@ $(document).ready(function () {
     const apiKey = "b1776aa1272908b67d6c8efe7518db41";
 
     //history
-    const searchHistory = JSON.parse(localStorage.getItem("hisory")) || [];
+    const searchHistory = JSON.parse(localStorage.getItem("history")) || [];
 
     $("#search-button").on("click", function () {
         //get the user input
@@ -102,9 +102,18 @@ $(document).ready(function () {
 
     const renderNewBtn = (cityName) => {
         //create markup for btn use city name
-
+        let newBtn ="";
         //append btn to container
-
+        for (let i = 0; i < searchHistory.length; i++) {
+            var searchDiv = $("#saved-results");
+            var newSearchDiv = $("<div>");
+            newSearchDiv.text(searchHistory[i]);
+            newSearchDiv.addClass("history");
+            searchDiv.append(newSearchDiv);
+            getCurrentWeather();
+            
+        }
+ 
         //add event listener (tricky)
 
     }
