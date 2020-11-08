@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     const getCurrentWeather = (cityName) => {
         //create queryURL var
-        const queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+        const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
         //get the data
         $.ajax({
             url: queryURL,
@@ -37,7 +37,7 @@ $(document).ready(function () {
                         <h3 class="card-title-container">
                             <span class="card-text name">${res.name}</span>
                             <span class="card-text date">(${new Date().toLocaleDateString()})</span>
-                            <span><img src="http://openweathermap.org/img/w/${res.weather[0].icon}.png"/></span>
+                            <span><img src="https://openweathermap.org/img/w/${res.weather[0].icon}.png"/></span>
                         </h3>
                         <p class="card-text temp">Temp: ${res.main.temp}F</p>
                         <p class="card-text wind">Wind Speed: ${res.wind.speed}MPH</p>
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
     const getForcast = (cityName) => {
         //create queryURL var
-        const queryURL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
+        const queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
         //get the data
         $.ajax({
             url: queryURL,
