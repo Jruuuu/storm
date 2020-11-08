@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,45 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
-    <div class ="container search-container float-left">
-        <!--This where the search bar and where the lastest search results are inputted-->
+    <nav class="navbar navbar-dark bg-light">
+        <span class="navbar-brand mx-auto h1">STORM Dashboard</span>
+    </nav>
+    <div class="card float-left mx-2 col-md-3" id="search-card">
+        <div class="container search-container float-left">
+            <!--This where the search bar and where the lastest search results are inputted-->
+            <h5>Search City:</h5>
+            <input type="text" class="form-control float-left" id="userInput" placeholder="Search City Here"
+                aria-label="Search City Here" aria-describedby="search-bar">
+            <button id="search-button" type="button" class="btn btn-primary">
+                <i class="fa-search fas" aria-hidden="true"></i>
+            </button>
+            <!--This is the area where the Saved results located are located-->
+            <div class="saved-results container"></div>
+
+        </div>
     </div>
-    <div class ="container results-container float-right">
+    <div class="card container results-container        float-right col-md-9" id="results-card">
         <!--This is where the results for todays forecast-->
+        <div class="todaysForecast">
+        </div>
         <!--This is where the 4day forecast is located-->
+        <div class="fourdayForecast">
+
+        </div>
     </div>
 
-    
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
 <script src="assets/script.js"></script>
+
 </html>
