@@ -24,30 +24,45 @@ $(document).ready(function () {
     const getCurrentWeather = (cityName) => {
         //create queryURL var
         const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+        
+        
         //get the data
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (res) {
-            //create the markup
-            const currentWeatherMarkUp = 
-            `
-                <div class="card">
+            //create var for lat and lon for ajax call
+            const lat= (res.coord.lat);
+            const lon= (res.coord.lon);
+            console.log(lat)
+            //get the data for UV value
+            const uvURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+             $.ajax({
+                 url: uvURL,
+                 method: "GET"
+                 //create the markup
+                }).then(function(uvRes){
+
+                    const currentWeatherMarkUp = 
+                    `
+                    <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title-container">
-                            <span class="card-text name">${res.name}</span>
-                            <span class="card-text date">(${new Date().toLocaleDateString()})</span>
-                            <span><img src="https://openweathermap.org/img/w/${res.weather[0].icon}.png"/></span>
-                        </h3>
-                        <p class="card-text temp">Temp: ${res.main.temp}F</p>
-                        <p class="card-text wind">Wind Speed: ${res.wind.speed}MPH</p>
-                        <p class="card-text humid">Humidity: ${res.main.humidity}%</p>
+                    <h3 class="card-title-container">
+                    <span class="card-text name">${res.name}</span>
+                    <span class="card-text date">(${new Date().toLocaleDateString()})</span>
+                    <span><img src="https://openweathermap.org/img/w/${res.weather[0].icon}.png"/></span>
+                    </h3>
+                    <p class="card-text temp">Temp: ${res.main.temp}F</p>
+                    <p class="card-text wind">Wind Speed: ${res.wind.speed}MPH</p>
+                    <p class="card-text humid">Humidity: ${res.main.humidity}%</p>
+                    <p class="card-text uv">UV INDEX: ${uvRes.value}</p>
                     </div>
-                </div>
-            `;
-            //show the data
-            $(".todaysForecast").html(currentWeatherMarkUp);
-        });
+                    </div>
+                    `;
+                    //show the data
+                    $(".todaysForecast").html(currentWeatherMarkUp);
+                });
+            });   
     };
 
     const getForcast = (cityName) => {
@@ -68,7 +83,7 @@ $(document).ready(function () {
                 if (res.list[i].dt_txt.indexOf("15:00:00") > -1) {
                     forecastMarkUp += 
                     `
-                        <div class="card">
+                        <div class="card  bg-primary float-left text-white mr-2 ml-2">
                             <div class="card-body">
                                 <div class="date">(${new Date().toLocaleDateString()})</div>
                                 <img src="https://openweathermap.org/img/w/${res.list[i].weather[0].icon}.png"/>
